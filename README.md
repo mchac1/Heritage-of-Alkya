@@ -2,7 +2,7 @@
 
 > Fantasy RPG game write in python
 
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![Gem Version](http://img.shields.io/gem/v/badgerbadgerbadger.svg?style=flat-square)](https://rubygems.org/gems/badgerbadgerbadger) [![License](http://img.shields.io/:license-gnu-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![License](http://img.shields.io/:license-gnu-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 ---
 
