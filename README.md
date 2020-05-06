@@ -15,7 +15,7 @@
 
 ---
 
-## Example (Optional)
+## Example
 
 ```python
 # Let's use Python
