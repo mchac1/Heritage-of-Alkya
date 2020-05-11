@@ -20,7 +20,7 @@ class LoggerCts:
     """
     Constantes liées au logger
     """
-    size = "medium"
+    size = "small"
     folder = join("HoAdata", "logs")
     colors = {
         "Debug"  : (75, 75, 75),
@@ -29,12 +29,16 @@ class LoggerCts:
         "Error"  : (255, 0, 0)
     }
     bg_color = (0, 0, 0)
-    font_small = Font(join("HoAassets", "Fonts", "BitPap.ttf"), 5)
-    font_medium = Font(join("HoAassets", "Fonts", "BitPap.ttf"), 10)
-    font_large = Font(join("HoAassets", "Fonts", "BitPap.ttf"), 20)
-    surface_size_small = (200, 100)
-    surface_size_medium = (400, 200)
-    surface_size_large = (800, 400)
+    font = {
+        "small": Font(join("HoAassets", "Fonts", "BitPap.ttf"), 5),
+        "medium": Font(join("HoAassets", "Fonts", "BitPap.ttf"), 10),
+        "large": Font(join("HoAassets", "Fonts", "BitPap.ttf"), 20)
+    }
+    surface_size = {
+        "small": (200, 100),
+        "medium": (400, 200),
+        "large": (800, 400)
+    }
     surface_flags = HWSURFACE | SRCALPHA | ASYNCBLIT | HWACCEL
 
 # Création des variables de la fenêtre
