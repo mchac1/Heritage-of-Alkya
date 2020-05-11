@@ -1,12 +1,14 @@
-#-*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 
 # Importation des modules du package
 from .constants import LoggerCts as cts
+from .constants import SystemCts as output
 
 # Importation des modules complémentaires
 from os.path import join
 import pygame
 from time import strftime
+
 
 # Création du logger
 class Logger:
@@ -29,19 +31,20 @@ class Logger:
 
     def log(self, level, message, thread="Main-Thread"):
         log = self.log_pattern.format(strftime("%H-%M-%S"), thread, level, message)
-        print(log)
+        if output.log:
+            print(log)
         self.logs.append((level, log))
 
-        old = self.surface.convert_alpha()
         self.surface.fill(cts.bg_color)
-        self.surface.blit(old, (0, -self.char_height))
-        self.surface.blit(cts.font[cts.size].render(log, True, cts.colors[level]), (5, self.surface_size[self.size][1]-5))
+        for i in range(min(len(self.logs), cts.surface_size[cts.size][1] // self.char_height)):
+            text = cts.font[cts.size].render(self.logs[-i - 1][1], True, cts.colors[self.logs[-i - 1][0]])
+            self.surface.blit(text, text.get_rect(bottomleft=(5, cts.surface_size[cts.size][1] - i * self.char_height - 5)))
 
     def save(self):
         filename = join(cts.folder, "Log of {}.log".format(strftime("%Y-%m-%d")))
         with open(filename, "w") as file:
             for _, log in self.logs:
-                file.write(log+"\n")
+                file.write(log + "\n")
             file.close()
 
     def load(self):
@@ -51,4 +54,3 @@ class Logger:
                 level = line.split("]")[2][1:]
                 self.logs.append((level, line[:-1]))
             file.close()
-
